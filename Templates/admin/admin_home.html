@@ -1,0 +1,106 @@
+<!-- collegeapp/templates/admin/admin_home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    <!-- Add any additional styles or link to your CSS file here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .image-link {
+            text-decoration: none;
+            text-align: center;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-link:hover {
+            transform: scale(1.05);
+        }
+
+        .image-label {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .signup-button {
+            background-color: #ec1818;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>King's College</h1>
+    </header>
+
+    <nav>
+        <a class="signup-button" href="{% url 'admin_logout' %}">Logout</a>
+
+    </nav>
+
+    <div class="image-container">
+        <a class="image-link" href="{% url 'add_course' %}">
+            <img src="{% static 'images/add_course.jpg' %}" alt="Add Course" width="150">
+            <div class="image-label">Add Course</div>
+        </a>
+
+        <a class="image-link" href="{% url 'add_student' %}">
+            <img src="{% static 'images/std1.png' %}" alt="Add Student" width="150">
+            <div class="image-label">Add Student</div>
+        </a>
+
+        <a class="image-link" href="{% url 'show_teacher' %}">
+            <img src="{% static 'images/show_teacher.png' %}" width="150">
+            <div class="image-label">Show Teachers</div>
+        </a>
+
+        <a class="image-link" href="{% url 'show_details' %}">
+            <img src="{% static 'images/student.png' %}" width="150">
+            <div class="image-label">Show Students</div>
+        </a>
+    </div>
+</body>
+</html>

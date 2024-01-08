@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+    
+        th, td {
+            border: 1px solid #030303;
+            padding: 12px;
+            text-align: left;
+            background-color: #d1dbe2;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+        }
+    
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+    
+        a {
+            text-decoration: none;
+            color: #3498db;
+            margin-right: 10px;
+        }
+    
+        a:hover {
+            color: #2980b9;
+        }
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+        header {
+            background-color: #333;
+            padding: 5px;
+            text-align: center;
+            color: white;
+        }
+        .signup-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>STUDENT DETAILS</h1>
+    </header>
+    <nav>
+        <!-- <a href="#">Home</a>
+        <a href="#">About</a> -->
+        <a class="signup-button" href="admin_home">Home</a>
+
+    </nav>
+    
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <th>STUDENT NAME</th>
+                    <th>ADDRESS</th>
+                    <th>AGE</th>
+                    <th>JOINING DATE</th>
+                    <th>COURSE</th>
+                    <th>COURSE FEE</th>
+                    <th>ACTION</th>
+
+                  
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in students %}
+                <tr>
+                    <td>{{s.student_name}}</td>
+                    <td>{{s.student_address}}</td>
+                    <td>{{s.student_age}}</td>
+                    <td>{{s.joining_date}}</td>
+                    <td>{{s.course.course_name}}</td>
+                    <td>{{s.course.fee}}</td>
+                    <td>
+                        <!-- <a href="{% url 'edit_page' s.id %}" style="color: rgb(39, 143, 39);">Edit</a> -->
+                        <a href="{% url 'deletepage' s.id %}" style="color: red; ">Delete</a>
+                        <a href="{% url 'edit_page' s.id %}" style="color: rgb(39, 143, 39);">Edit</a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>
